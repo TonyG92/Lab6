@@ -12,7 +12,7 @@ namespace Lab6
         {
             // declaring variables
             int side;
-            int rollResult;
+            // int rollResult; using method in this place of this variable
             string response = "y";
 
             Console.WriteLine("Welcome to Grand Circus Casino!");
@@ -28,9 +28,7 @@ namespace Lab6
                     Console.WriteLine("You rolled a dice that has 4 sides or more: ");
                     for(int count = 1; count < 3; count++)
                     {
-                        Random roll = new Random();
-                        rollResult = roll.Next(1, side + 1);             // make the random function choose any number: (a <= num < b) such that (a,b)
-                        Console.WriteLine(rollResult);
+                        Console.WriteLine(RollDice(side));
                     }
 
                 }
@@ -46,6 +44,13 @@ namespace Lab6
             
 
 
+        }
+        public static int RollDice(int numSide)
+        {
+            int rollResult;
+            Random roll = new Random();
+            rollResult = roll.Next(1, numSide + 1);             // make the random function choose any number: (a <= num < b) such that (a,b)
+            return rollResult;
         }
     }
 }
